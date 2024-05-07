@@ -4,12 +4,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', methods=['POST'])
 
-@app.route('/main')
+@app.route('/main', methods=['POST'])
 def main():
-    return render_template('main.html', methods=['POST', 'GET'])
+    print(request.form.get('id'))
+    print(request.form.get('pw'))
+    return render_template('main.html')
     
 if __name__ == '__main__':
-    #app.run('127.0.0.1', 5000, debug=True)
-    app.run(debug=True)
+    app.run('127.0.0.1', 5000, debug=True)
