@@ -3,15 +3,19 @@ from flask import *
 app = Flask(__name__)
 
 @app.route('/')
-def login_page():
+def main():
     return render_template('login.html')
 
-@app.route('/login', methods=['POST'])
-def login():
+@app.route('/home', methods=['POST', 'GET'])
+def home():
     return render_template('main.html')
 
 @app.route('/register')
 def register():
+    return render_template('register.html')
+
+@app.route('/register_check', methods=['POST'])
+def register_check():
     return render_template('login.html')
 
 @app.route('/diary_board')
@@ -20,7 +24,7 @@ def diary_board():
 
 @app.route('/logout')
 def logout():
-    return login_page()
+    return main()
     
 if __name__ == '__main__':
     app.run('127.0.0.1', 5000, debug=True)
