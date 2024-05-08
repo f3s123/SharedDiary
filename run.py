@@ -22,6 +22,10 @@ def register_check():
 def diary_board():
     return render_template('diary_board.html')
 
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
+
 @app.route('/logout')
 def logout():
     return main()
