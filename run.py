@@ -1,4 +1,5 @@
 from flask import *
+import sqlite3
 
 app = Flask(__name__)
 
@@ -18,9 +19,21 @@ def register():
 def register_check():
     return render_template('login.html')
 
-@app.route('/diary_board')
+@app.route('/diary_board', methods=["GET", "POST"])
 def diary_board():
-    return render_template('diary_board.html')
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    if request.args.get("title"):
+        print(request.args.get("title"))
+        print(request.args.get("content"))
+        # cur.execute("INSERT VALUE INTO diary ()")
+    diary = cur.fetchall()
+    print(diary)
+    return render_template('diary_board.html', diary=diary)
+
+@app.route('/diary_write')
+def diary_write():
+    return render_template('diary_write.html')
 
 @app.route('/calendar')
 def calendar():

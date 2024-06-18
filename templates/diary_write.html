@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Board</title>
+</head>
+<body>
+    <div id="diary">
+        This page is Dairy Board
+        <form action="/diary_board" id="diary-content">
+            <div>
+                <div>
+                    <input type="text" id="title" name="title" placeholder="title">
+                </div>
+                <div>
+                    <textarea id="content" name="content" placeholder="content"></textarea>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="upload">
+            </div>
+        </form>
+        <div>
+            <button onclick="location.href='/home'">home</button>
+        </div>
+    </div>
+</body>
+</html>
